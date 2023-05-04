@@ -1,6 +1,6 @@
 // importation et utilisation d'express pour notre app
 const express = require("express");
-// const userRouteur = require("./routes/user");
+const authenticateRouteur = require("./routes/authenticate");
 const memesRouter = require("./routes/memes");
 const path = require('path');
 
@@ -27,7 +27,7 @@ app.use((req, res, next) => {
     next();
 });
 
-// app.use('/authenticate', userRouteur);
+app.use('/authenticate', authenticateRouteur);
 app.use('/memes', memesRouter);
 app.use('/images', express.static(path.join(__dirname, 'images')));
 
