@@ -35,5 +35,3 @@ app.listen(port, (err)=>{
   if(err) console.log(err.message)
   console.log(`Running on port ${port}`);
 })
-
-// module.exports = app;

@@ -11,16 +11,15 @@ exports.allMemes = (req, res, next) =>{
 
 /////////////// Création d'un nouveau memes //////////////////
 exports.createMemes = (req, res, next) => {
-    const memes = req.body; // Pas besoin de JSON.parse
+    const memes = req.body;
     const addMemes = new Memes({
-        ...memes,
-        imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+      ...memes,
+      imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
     });
     addMemes.save()
-        .then(() => res.status(200).json({ message: "Memes enregistré avec succès !" }))
-        .catch(error => res.status(400).json({ error }));
-}
-
+      .then(() => res.status(200).json({ message: "Meme enregistré avec succès !" }))
+      .catch(error => res.status(400).json({ error }));
+  };
 
 
 /////////////////// Suppression d'un memes ///////////////////////
